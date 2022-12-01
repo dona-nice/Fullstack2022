@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org",
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>ReactJS + Spring Data REST</title>
+    <link rel="stylesheet" href="/main.css" />
+</head>
+<body>
+
+<div id="react"></div>
+
+<script src="built/bundle.js"></script>
+
+
+<h1>Tesy Application Main Page</h1>
+<H1> This is the first page after login to tesy</H1>
+<div>
+    <span sec:authorization="name">Username</span>
+
+    <span sec:authentication="principal.authorities">Roles</span>
+
+    <form method="get" action="/logout">
+        <button type="submit">Logout</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+stages:
+  - test
+  - deploy
+
+cache:
+  paths:
+    - .m2/repository
+    - target
+
+unit-test:
+  stage: test
+  image: maven:latest
+  tags:
+    - docker
+  script:
+    - echo "Maven test started"
+    - "mvn test"
+
+deploy_job:
+  stage: deploy
+  image: maven:latest
+  tags:
+    - docker
+  script:
+    - HEROKU_API_KEY=${HEROKU_API_KEY} mvn heroku:deploy

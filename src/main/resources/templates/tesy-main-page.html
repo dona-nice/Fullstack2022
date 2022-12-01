@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<H1> This is the first page after login to tesy</H1>
+
+<span sec:authentication="name">Username</span>
+
+<span sec:authentication="principal.authorities">Roles</span>
+
+<div sec:authorize="isAuthenticated()">
+    Welcome <b><span sec:authentication="name">Username</span></b>
+    &nbsp;
+    <i><span sec:authentication="principal.authorities">Roles</span></i>
+</div>
+
+<button>Register new animal</button>
+<button>search animal</button>
+<button>Add prescription</button>
+<form method="get" action="/logout">
+    <button type="submit">Logout</button>
+</form>
